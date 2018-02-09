@@ -1,0 +1,103 @@
+#include
+FROM OPENQUERY
+SELECT SUM
+CREATE TABLE
+END IF;
+IF SQL%NOTFOUND THEN
+FROM OPENQUERY
+SELECT SUM
+CREATE TABLE
+END IF;
+IF SQL%NOTFOUND THEN
+END LOOP;
+ELSIF
+DECLARE CURSOR
+%NOTFOUND
+%ISOPEN
+%FOUND
+LEFT JOIN
+LEFT OUTER JOIN
+SQL_FILETABLE =
+select DataValue from
+
+dir(submission)
+ 
+['approve',
+'approved_by',
+'author',
+ 
+'domain',
+'downs',
+'downvote',
+'edit',
+'edited',
+ 
+'saved',
+ 
+'score',
+'secure_media',
+'secure_media_embed',
+'selftext',
+'selftext_html',
+ 
+'title',
+ 
+'ups',
+'upvote',
+'url',
+'user_reports',
+'visited',
+'vote']
+for submission in subreddit.hot(limit=5):
+    print("Title: ", submission.title)
+    print("Text: ", submission.selftext)
+    print("Score: ", submission.score)
+    print("---------------------------------\n")
+/* fileCopy.c
+ * Author - Charlie McDowell
+ * Purpose - Demonstratie text file I/O by copying one
+ *    file to another. The program also uses command
+ *    line arguments.
+ */
+#include <stdio.h>
+
+// void copy(FILE* in, FILE* out);
+
+int main(int argc, char* argv[]) {
+  FILE* in_file;
+  FILE* out_file;
+
+  if(argc != 3) {
+    printf("Usage: fileCopy inputFile outputFile\n");
+    exit(1);
+  }
+  
+  in_file = fopen(argv[1],"r");
+  if(in_file == NULL) {
+    fprintf(stderr,"ERROR: couldn't open %s for reading\n", argv[1]);
+    exit(1);
+  }
+
+  out_file = fopen(argv[2],"w");
+  if(out_file == NULL) {
+    fprintf(stderr,"ERROR: couldn't open %s for writing\n", argv[2]);
+    exit(1);
+  }
+
+  copy(in_file, out_file);
+
+  fclose( in_file );
+  fclose( out_file );
+
+  return 0;
+}
+
+#define BUF_SIZE 200
+
+void copy(FILE* in, FILE* out) {
+  char buffer[BUF_SIZE];
+
+  while(fgets(buffer, BUF_SIZE, in) != NULL) {
+    fprintf(out,"%s",buffer);
+  }
+}
